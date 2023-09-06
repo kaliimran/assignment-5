@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Explore</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="container md:mx-auto">
+    <header class="w-full">
+        <div class="bg-cyan-100 text-center lg:flex justify-between px-5 py-4">
+            <div>
+                <a href="index.html">
+                    <h1 class="text-4xl font-bold">Interactive <br> <span class="text-3xl font-normal">Geometry Genius</span></h1>
+                </a>
+            </div>
+            <div>
+                <button id="btn-blog" class="bg-cyan-800 px-4 py-3 text-white text-2xl font-semibold rounded-lg mt-2">Blog</button>
+            </div>
+        </div>
+    </header>
+    <main class="w-full lg:w-11/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-6 mx-auto">
+        <div class="bg-gray-100 mb-9">
+            <div class="text-center">
+                <img class="mx-auto mt-8" src="images/triangle.png" alt="">
+                <h3 id="triangle" class="mt-5 mb-4 text-2xl font-semibold">Triangle</h3>
+                <h5 class="mb-4">Area (A) = 0.5 X b X h</h5>
+                <div class="flex justify-center">
+                    <div class="flex justify-center">
+                        <input id="triangleB" class="bg-gray-100 w-24 h-8 mr-3 pl-4 rounded-lg" disabled type="text" placeholder="b">
+                        <h5 class="mr-3">cm</h5>
+                        <input id="triangleH" class="bg-gray-100 w-24 h-8 mr-3 pl-4 rounded-lg" disabled type="text" placeholder="h">
+                        <h5 class="mr-3">cm</h5>
+                    </div>
+                    <input class="w-14 rounded-lg" type="checkbox" name="" id="triangleCheck" onclick="checkMe()">
+                </div>
+                <button id="btn-triangle" class="px-24 py-4 bg-cyan-800 rounded-lg text-3xl text-white mt-12 mb-9">Calculate</button>
+            </div>
+        </div>
+        <div class="bg-gray-100 mb-9">
+            <div class="text-center">
+                <img class="mx-auto mt-8" src="images/rectangle.png" alt="">
+                <h3 id="rectangle" class="mt-5 mb-4 text-2xl font-semibold">Rectangle</h3>
+                <h5 class="mb-4">Area (A) = w X l</h5>
+                <div class="flex justify-center">
+                    <input id="rectangleW" class="bg-gray-100 w-24 h-8 mr-3 pl-4 rounded-lg" type="text" placeholder="w">
+                    <h5 class="mr-3">cm</h5>
+                    <input id="rectangleL" class="bg-gray-100 w-24 h-8 pl-4 mr-3 rounded-lg" type="text" placeholder="l">
+                    <h5>cm</h5>
+                </div>
+                <button id="btn-rectangle" class="px-24 py-4 bg-cyan-800 rounded-lg text-3xl text-white mt-12 mb-9">Calculate</button>
+            </div>
+        </div>
+        <div class="bg-gray-100 mb-9">
+            <div class="text-center">
+                <img class="mx-auto mt-8" src="images/parallelogram.png" alt="">
+                <h3 id="parallelogram" class="mt-5 mb-4 text-2xl font-semibold">Parallelogram</h3>
+                <h5 class="mb-4">Area (A) = b X h</h5>
+                <div class="flex justify-center">
+                    <input id="parallelogramB" class="bg-gray-100 w-24 h-8 mr-3 pl-4 rounded-lg" type="text" placeholder="b">
+                    <h5 class="mr-3">cm</h5>
+                    <input id="parallelogramH" class="bg-gray-100 w-24 h-8 pl-4 mr-3 rounded-lg" type="text" placeholder="h">
+                    <h5>cm</h5>
+                </div>
+                <button id="btn-parallelogram" class="px-24 py-4 bg-cyan-800 rounded-lg text-3xl text-white mt-12 mb-9">Calculate</button>
+            </div>
+        </div>
+        <div class="bg-gray-100">
+            <div class="text-center">
+                <h3 class="mt-5 mb-4 text-xl font-semibold underline">Area Calculation</h3>
+            </div>
+            <div id="resultArea" class="list-decimal"></div>
+        </div>
+        
+        <div class="bg-gray-100 mb-9">
+            <div class="text-center">
+                <img class="mx-auto mt-8" src="images/rhombus.png" alt="">
+                <h3 class="mt-5 mb-4 text-2xl font-semibold">Rhombus</h3>
+                <h5 class="mb-4">Area (A) = 0.5 X d1 X d2</h5>
+                <div class="flex justify-center">
+                    <input id="rhombus1" class="bg-gray-100 w-24 h-8 mr-3 pl-4 rounded-lg" type="text" placeholder="d1">
+                    <h5 class="mr-3">cm</h5>
+                    <input id="rhombus2" class="bg-gray-100 w-24 h-8 pl-4 mr-3 rounded-lg" type="text" placeholder="d2">
+                    <h5>cm</h5>
+                </div>
+                <button id="btn-rhombus" class="px-24 py-4 bg-cyan-800 rounded-lg text-3xl text-white mt-12 mb-9">Calculate</button>
+            </div>
+        </div>
+        <div class="bg-gray-100 mb-9">
+            <div class="text-center">
+                <img class="mx-auto mt-8" src="images/pentagon.png" alt="">
+                <h3 class="mt-5 mb-4 text-2xl font-semibold">Pentagon</h3>
+                <h5 class="mb-4">Area (A) = 0.5 X p X b</h5>
+                <div class="flex justify-center">
+                    <input id="PentagonP" class="bg-gray-100 w-24 h-8 mr-3 pl-4 rounded-lg" type="text" placeholder="p">
+                    <h5 class="mr-3">cm</h5>
+                    <input id="PentagonB" class="bg-gray-100 w-24 h-8 pl-4 mr-3 rounded-lg" type="text" placeholder="b">
+                    <h5>cm</h5>
+                </div>
+                <button id="btn-pentagon" class="px-24 py-4 bg-cyan-800 rounded-lg text-3xl text-white mt-12 mb-9">Calculate</button>
+            </div>
+        </div>
+            <div class="bg-gray-100 mb-9">
+                <div class="text-center">
+                    <img class="mx-auto mt-8" src="images/ellipse.png" alt="">
+                    <h3 class="mt-5 mb-4 text-2xl font-semibold">Ellipse</h3>
+                    <h5 class="mb-4">Area (A) = &#960ab</h5>
+                    <div class="flex justify-center">
+                        <input id="ellipseA" class="bg-gray-100 w-24 h-8 mr-3 pl-4 rounded-lg" type="text" placeholder="a">
+                        <h5 class="mr-3">cm</h5>
+                        <input id="ellipseB" class="bg-gray-100 w-24 h-8 pl-4 mr-3 rounded-lg" type="text" placeholder="b">
+                        <h5>cm</h5>
+                    </div>
+                    <button id="btn-ellipse" class="px-24 py-4 bg-cyan-800 rounded-lg text-3xl text-white mt-12 mb-9">Calculate</button>
+                </div>
+            </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
